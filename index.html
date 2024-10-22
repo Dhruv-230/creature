@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        let y = 0;
+
+        function setup() {
+            createCanvas(900, 1400);
+            noLoop(); // Prevents draw from looping
+        }
+
+        function draw() {
+            background(200, 200, 255);
+
+            // Ground  
+            fill(103, 150, 75);
+            strokeWeight(0);
+            rect(0, 1200, 900, 800);
+
+            // Gradient ellipse
+            noStroke();
+            const grad = drawingContext.createLinearGradient(0, 0, 400, 0);
+            grad.addColorStop(0.4, 'rgb(255, 166, 0)');
+            grad.addColorStop(1, 'rgb(255, 253, 208)');
+            drawingContext.fillStyle = grad;
+            ellipse(450, 400, 480, 480);
+
+            // Adjusted fill color
+            fill(255, 100, 100); // Example of a visible color
+            stroke(0);
+            strokeWeight(3);
+            ellipse(450, 400, 480, 480);
+
+            // Rectangles
+            fill('black');
+            rect(250, 250, 200, 50, 20);
+            rect(480, 250, 200, 50, 20);
+
+            // Circles
+            drawCircle(350, 350, 45, 'red', 'green');
+            circle(350, 350, 20);
+            drawCircle(550, 350, 45, 'red', 'green');
+            circle(550, 350, 20);
+
+            // Lines
+            stroke(0);
+            strokeWeight(12);
+            line(450, 380, 430, 500);
+            line(426, 495, 500, 495);
+
+            // Additional lines
+            strokeWeight(14);
+            line(450, 640, 450, 1150);
+            line(100, 800, 450, 700);
+            line(800, 800, 450, 700);
+            line(200, 1300, 454, 1135);
+            line(750, 1300, 441, 1135);
+
+            // Rotate polygon
+            push();
+            translate(330, 340);
+            rotate(PI);
+            beginShape();
+            vertex(-130, -240);
+            vertex(-90, -210);
+            vertex(-210, -210);
+            endShape(CLOSE);
+            pop();
+        }
+
+        function drawCircle(x, y, radius, fillColor, strokeColor) {
+            fill(fillColor);
+            stroke(strokeColor);
+            strokeWeight(3);
+            ellipse(x, y, radius * 2, radius * 2);
+        }
+    </script>
+</head>
+<body>
+    <h1 class="title">Creature Project</h1>
+</body>
+</html>
